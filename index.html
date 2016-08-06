@@ -1,0 +1,57 @@
+
+<html lang="en" ng-app ng-controller="appCtrl">
+<head>
+  
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">  
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  
+  <header class="row">
+    
+    <h3>Rossome Bookmarks</h3>
+    
+  </header>
+  
+  <div class="row">
+    
+    <div class="large-6 columns">
+      
+      <div class="panel">
+        
+        <input type="text" placeholder="Search Bookmarks" ng-model="search" />
+        
+      </div>      
+      
+	    <ul class="bookmarks">
+		    <li ng-repeat="site in bookmarks | filter: search">
+          <a href="{{ site.url }}">{{ site.title }}</a>
+          <span class="label secondary"> {{site.category}}</span>
+          
+          <i class="right icon-trash" ng-click="deleteBookmark($index)"></i>
+          
+		    </li>
+	    </ul>
+      
+    </div>
+    
+    <div class="large-6 columns">
+      
+      <div class="panel">
+        
+        	<h4>Add Bookmark</h4>
+	    <input type="text" placeholder="Site Name" ng-model="site_name" />
+	<input type="text"  placeholder="URL" ng-model="site_url" />
+<input type="text"  placeholder="Category" ng-model="site_category" />
+	<button ng-click="addBookmark()">Add Bookmark</button>
+        
+      </div>
+      
+    </div>
+    
+  </div>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
